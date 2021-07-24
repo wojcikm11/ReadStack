@@ -1,0 +1,42 @@
+/* Ramka, marginesy, wyśrodkowanie i maksymalna szerokość */
+.discovery-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #BDBDBD;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+/* Rozmiar czcionki i marginesy między inputami */
+.discovery-form > * {
+    margin: 1rem;
+    font-size: 16px;
+}
+
+/* Czcionka text area i ustawienie zmiany tylko wysokości */
+.discovery-form > textarea {
+    font: 300 1rem 'Roboto', sans-serif;
+    height: 5rem;
+    resize: vertical;
+}
+
+/* Obramowanie elementów formularza i powiększenie ich rozmiaru */
+.discovery-form > *:not(.discovery-form-title) {
+    padding: 20px;
+    border: 1px solid #BDBDBD;
+}
+
+/* Wyśrodkowanie tytułu formularza */
+.discovery-form-title {
+    margin: 16px auto;
+}
+
+.discovery-form-button {
+    color: white;
+    background-color: #007AFF;
+}
+
+
+
+
