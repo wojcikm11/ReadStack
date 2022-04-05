@@ -21,14 +21,18 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<DiscoveryBasicInfo> discoveries = discoveryService.findAll();
-        if (request.getSession(false) != null) {
-            String username = request.getUserPrincipal().getName();
-            discoveryService.setColourVotes(username, discoveries);
-        }
+        colorVotes(request, discoveries);
         List<CategoryName> categories = categoryService.findAllCategoryNames();
 
         request.setAttribute("discoveries", discoveries);
         request.setAttribute("categories", categories);
         request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+    }
+
+    private void colorVotes(HttpServletRequest request, List<DiscoveryBasicInfo> discoveries) {
+        if (request.getUserPrincipal() != null) {
+            String username = request.getUserPrincipal().getName();
+            discoveryService.colorVotes(username, discoveries);
+        }
     }
 }

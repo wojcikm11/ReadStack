@@ -19,14 +19,14 @@ public class UserDao extends BaseDao {
     public Optional<User> findByUsername(String username) {
         final String query = """
             SELECT
-              id, username, email, password, registration_date
+              id, user.username, email, password, registration_date, role_name
             FROM
-              user
+              user JOIN user_role ON user.username = user_role.username
             WHERE
-              username = ?
+              user.username = ?
         """;
         try (Connection connection = getConnection();
-        PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -42,9 +42,9 @@ public class UserDao extends BaseDao {
     public Optional<User> findById(int id) {
         final String query = """
             SELECT
-              id, username, email, password, registration_date
+              id, user.username, email, password, registration_date, role_name
             FROM
-              user
+              user JOIN user_role ON user.username = user_role.username
             WHERE
               id = ?
         """;
@@ -107,6 +107,7 @@ public class UserDao extends BaseDao {
         String email = resultSet.getString("email");
         String password = resultSet.getString("password");
         LocalDateTime registrationDate = resultSet.getObject("registration_date", LocalDateTime.class);
-        return new User(id, username, email, password, registrationDate);
+        String roleName = resultSet.getString("role_name");
+        return new User(id, username, email, password, registrationDate, roleName);
     }
 }

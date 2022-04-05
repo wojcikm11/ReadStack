@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet("/discovery/vote")
 @ServletSecurity(
         httpMethodConstraints = {
-                @HttpMethodConstraint(value = "GET", rolesAllowed = "USER")
+                @HttpMethodConstraint(value = "GET", rolesAllowed = {"USER", "ADMIN"})
         }
 )
 public class DiscoveryVoteController extends HttpServlet {

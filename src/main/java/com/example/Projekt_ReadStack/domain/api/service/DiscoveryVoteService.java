@@ -29,6 +29,12 @@ public class DiscoveryVoteService {
         return voteDao.findVotesByUserId(userId).stream().map(VoteMapper::map).toList();
     }
 
+    public Optional<DiscoveryVote> findVote(String username, int discoveryId) {
+        int userId = userDao.findByUsername(username).orElseThrow().getId();
+        return voteDao.findVote(userId, discoveryId).map(VoteMapper::map);
+
+    }
+
     private boolean newVote(DiscoveryVote discoveryVote, int userId) {
         return voteDao.findVote(userId, discoveryVote.getDiscoveryId()).isEmpty();
     }

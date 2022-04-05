@@ -6,6 +6,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DiscoveryDao extends BaseDao {
 
@@ -30,6 +31,34 @@ public class DiscoveryDao extends BaseDao {
         }
     }
 
+    private List<Discovery> findDiscoveriesById(String query, int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            List<Discovery> discoveries = new ArrayList<>();
+            while (resultSet.next()) {
+                Discovery discovery = mapRow(resultSet);
+                discoveries.add(discovery);
+            }
+            return discoveries;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Discovery> findByUserId(int userId) {
+        final String query = """
+            SELECT
+              id, title, url, description, date_added, category_id, user_id
+            FROM
+              discovery
+            WHERE
+              user_id = ?
+        """;
+        return findDiscoveriesById(query, userId);
+    }
+
     public List<Discovery> findByCategory(int categoryId) {
         final String query = """
         SELECT
@@ -39,16 +68,27 @@ public class DiscoveryDao extends BaseDao {
         WHERE
           category_id = ?
         """;
-        try(Connection connection = getConnection();
-            PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, categoryId);
+        return findDiscoveriesById(query, categoryId);
+    }
+
+    public Optional<Discovery> findById(int discoveryId) {
+        final String query = """
+            SELECT
+              id, title, url, description, date_added, category_id, user_id
+            FROM
+              discovery
+            WHERE
+              id = ?
+        """;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, discoveryId);
             ResultSet resultSet = statement.executeQuery();
-            List<Discovery> discoveries = new ArrayList<>();
-            while (resultSet.next()) {
-                Discovery discovery = mapRow(resultSet);
-                discoveries.add(discovery);
+            if (resultSet.next()) {
+                return Optional.of(mapRow(resultSet));
+            } else {
+                return Optional.empty();
             }
-            return discoveries;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

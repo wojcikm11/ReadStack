@@ -1,0 +1,93 @@
+/* ramka i odstępy */
+.discovery {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.discovery-header {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.description, .discovery-link {
+    font-size: 1.5rem;
+}
+
+.comments {
+    margin-top: 30px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.comments {
+    margin-top: 4em;
+}
+
+.comment {
+    border: 1px solid #BDBDBD;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 0 10px;
+}
+
+.comment-username-link {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.comment-date {
+    color: #757575;
+}
+
+/* nadpisanie domyślnych marginesów */
+.comment-header > p {
+     margin: 0;
+     padding: 0;
+}
+
+.comment-username-link:hover {
+    text-decoration: underline;
+}
+
+.form-add-comment {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.add-comment-header {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.add-comment-content {
+    font: 300 1rem 'Roboto', sans-serif;
+    height: 5rem;
+    resize: vertical;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: inherit;
+    margin: 5px auto;
+    padding: 10px 0;
+}
+
+.add-comment-button {
+    background-color: #007AFF;
+    border: 1px solid #BDBDBD;
+    border-radius: 10px;
+    color: white;
+    padding: 3px 16px;
+    line-height: 24px;
+    font-weight: 400;
+    float: right;
+    width: 8em;
+    margin: auto 0
+}
+
+.add-comment-button:hover {
+    opacity: 80%;
+}

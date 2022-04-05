@@ -18,8 +18,8 @@ import java.util.List;
 @WebServlet("/discovery/add")
 @ServletSecurity(
         httpMethodConstraints = {
-                @HttpMethodConstraint(value = "GET", rolesAllowed = "USER"),
-                @HttpMethodConstraint(value = "POST", rolesAllowed = "USER")
+                @HttpMethodConstraint(value = "GET", rolesAllowed = {"USER", "ADMIN"}),
+                @HttpMethodConstraint(value = "POST", rolesAllowed = {"USER", "ADMIN"})
         }
 )
 public class AddDiscoveryController extends HttpServlet {

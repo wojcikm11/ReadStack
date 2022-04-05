@@ -1,5 +1,7 @@
 package com.example.Projekt_ReadStack.domain.api.dto;
 
+import com.example.Projekt_ReadStack.domain.user.UsernameColor;
+
 import java.time.LocalDateTime;
 
 public class DiscoveryBasicInfo {
@@ -9,18 +11,22 @@ public class DiscoveryBasicInfo {
     private String description;
     private LocalDateTime dateAdded;
     private int voteCount;
+    private int commentCount;
     private String author;
     private String voteType;
+    private UsernameColor authorColor;
 
     public DiscoveryBasicInfo(Integer id, String title, String url, String description, LocalDateTime dateAdded,
-                              int voteCount, String author) {
+                              int voteCount, int commentCount, String author, UsernameColor authorColor) {
         this.id = id;
         this.title = title;
         this.url = url;
         this.description = description;
         this.dateAdded = dateAdded;
         this.voteCount = voteCount;
+        this.commentCount = commentCount;
         this.author = author;
+        this.authorColor = authorColor;
     }
 
     public Integer getId() {
@@ -57,5 +63,13 @@ public class DiscoveryBasicInfo {
 
     public void setVoteType(String voteType) {
         this.voteType = voteType;
+    }
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public UsernameColor getAuthorColor() {
+        return authorColor;
     }
 }

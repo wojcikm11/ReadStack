@@ -1,5 +1,5 @@
 /* Ramka, marginesy, wyśrodkowanie i maksymalna szerokość */
-.discovery-form {
+.edit-form {
     display: flex;
     flex-direction: column;
     border: 1px solid #BDBDBD;
@@ -9,30 +9,54 @@
 }
 
 /* Rozmiar czcionki i marginesy między inputami */
-.discovery-form > * {
-    margin: 1rem;
+.edit-form > * {
     font-size: 16px;
 }
 
 /* Czcionka text area i ustawienie zmiany tylko wysokości */
-.discovery-form > textarea {
+.edit-form > textarea {
     font: 300 1rem 'Roboto', sans-serif;
     height: 5rem;
     resize: vertical;
 }
 
 /* Obramowanie elementów formularza i powiększenie ich rozmiaru */
-.discovery-form > *:not(.discovery-form-title) {
+.edit-form > .input {
     padding: 20px;
     border: 1px solid #BDBDBD;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 /* Wyśrodkowanie tytułu formularza */
-.discovery-form-title {
+.edit-form-title {
     margin: 16px auto;
 }
 
-.discovery-form-button {
+.edit-form-button {
     color: white;
     background-color: #007AFF;
+}
+
+.label-placeholder {
+    margin-left: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.gender-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gender-item {
+    margin-bottom: 10px;
+    margin-left: 1rem;
+}
+
+.error {
+    color: red;
+    margin: 16px auto;
 }

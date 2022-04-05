@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet("/login")
 @ServletSecurity(
         httpMethodConstraints = {
-                @HttpMethodConstraint(value = "GET", rolesAllowed = "USER")
+                @HttpMethodConstraint(value = "GET", rolesAllowed = {"USER", "ADMIN"})
         }
 )
 public class LoginController extends HttpServlet {

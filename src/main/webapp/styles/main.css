@@ -3,6 +3,28 @@ a {
     text-decoration: none;
 }
 
+.discovery-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+}
+
+.discovery-header:hover, .discovery-author:hover {
+    text-decoration: underline;
+}
+
+.username-green {
+    color: rgba(6, 180, 6, 0.69);
+}
+
+.username-orange {
+    color: darkorange;
+}
+
+.username-blue {
+    color: #007AFF;
+}
+
 /* logo po lewej, przycisk logowania po prawej */
 .navbar {
     display: flex;
@@ -164,14 +186,113 @@ footer {
     align-items: center;
 }
 
-.discovery-like {
+.discovery-like, .discovery-comment {
     margin-left: 15px;
 }
 
 .clicked-upvote {
-    color: #4CD964; !important;
+    color: #4CD964;
 }
 
 .clicked-downvote {
-    color: #FF3B30; !important;
+    color: #FF3B30;
 }
+
+
+.logout-button {
+    background-color: #007AFF;
+    color: white;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+.logout-button:hover {
+    opacity: 80%;
+}
+
+.logut-panel {
+    display: inline-flex;
+    align-items: center;
+}
+
+.user-icon {
+    color: #007AFF;
+    font-size: 2em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+.user-image {
+    width: 15%;
+    height: 15%;
+    border: 1px solid black;
+}
+
+.image-info {
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #BDBDBD;
+    padding-bottom: 60px;
+}
+
+.username, .image {
+    margin: 5px auto;
+    left: 0;
+    text-align:center;
+    top: 30px;
+    width: 100%
+}
+
+.username {
+    font-weight: bold;
+}
+
+.user-info {
+
+}
+
+.user-info-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.user-info-list > li {
+    font-size: 19px;
+}
+
+.profile-attribute {
+    color: #007AFF;
+    font-weight: 550;
+}
+
+.added-discoveries-header {
+
+}
+
+#edit-profile-button {
+    background-color: #007AFF;
+    color: white;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+#edit-profile-button:hover {
+    opacity: 80%;
+}
+
+.header-info {
+    margin-top: 30px;
+}
+
